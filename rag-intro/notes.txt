@@ -1,0 +1,48 @@
+
+WHY DO WE USE RAG ?
+
+  - It adds knowledge to the model at the runtime
+  - it retrieves relevant info and passes it to the model to generate a more accurate and personalized answer
+
+How does it works?
+
+Retrieve
+
+  - pdf is split into chunks
+  - chunk is converted into a vector using gemini embeddings
+  - question is also embedded into vector 
+  - compare the question vector to all chunk vectors using vector similarity search( LIKE FAISS) to find      top-matching chunks. 
+
+  example:
+          chunk A - vector A
+          chunk B - vector B
+        
+  - Query --> vector Q
+  - FAISS says: "vector Q is closest to vector B and C so retrieve those chunks"
+
+AUGMENT 
+
+  - we take the top relevant chunks and insert them into the prompt 
+    example:
+            "Bases on the following context: [chunk B] [chunk C], answer the question: what are the main goals?
+
+
+Generate 
+
+  - now Gemini has context, it can generate a grounded, accurate answer.
+
+BASICS
+
+  - Embeddings are the special kind of vector which have representation of a text
+  - captures semantic meaning of text
+  - we create embeddings using a LLM
+  - Vector + meaning
+  - example:
+            what is AI --> [0.12,-0.03,0.55, ...]
+
+  - Vector is just the list of numbers [1,0.5,0...]
+
+  - We use FAISS (Facebook AI similarity Search) because
+                                                    - stores vector efficiently
+                                                    - quickly find the most similiar ones
+

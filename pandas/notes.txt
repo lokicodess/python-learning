@@ -1,0 +1,39 @@
+
+
+PANDAS
+
+- Can analyze big data , clean,  readable and relevant  
+
+ SERIES 
+ - column in a table ( 1D array)
+ - we can pass index arg to label the custom data
+ - In case of dictionary, key becomes the labels
+
+ DATAFRAME
+ - Unlike series, it has 2D data.
+ - we can work with .csv files(to store large data)
+ - Always convert df.to_string() to get full data, otherwise it will return 5 rows from start and end only
+ - it can only maximum print 60 rows. we can change it by calling
+      pd.options.display.max_rows = 99999
+ - we can work same with json
+
+VIEW DATA
+ - we can see the upper rows by calling head(no of rows wants to see) method, same there is a tail method.
+ - we can get the info about the dataset by calling info method
+
+DATA MANIPULATION
+- Adding rows/columns
+  columns: df["column name"] = data
+  df.loc[len(df.index)] = [data]
+
+- Removing rows/columns
+  df.drop(index = index, axis = 0)
+  df.drop("column name", axis = 1)
+  
+- Renaming rows/columns
+
+
+DATA CLEANING
+
+- defna() method for cleaning empty rows and returning new row , use inplace = "true" for in place change.
+- fillna() method we can choose for filling instead of directly deleting

@@ -1,0 +1,6 @@
+
+langchain
+faiss-cpu
+pypdf2
+google-generativeai
+gradio
